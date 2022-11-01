@@ -7,13 +7,28 @@ const Nav = ( {fetchData} ) => {
     <nav className="main-nav">
       <ul>
         <li>
-          <NavLink to="shiba" onClick={() => fetchData('shiba')}>Shiba</NavLink>
+          <NavLink to="lol" onClick={() => fetchData('lol')}>lol</NavLink>
         </li>
         <li>
-          <NavLink to="anime" onClick={() => fetchData('anime')}>Anime</NavLink>
+          <NavLink to="bebe" onClick={() => fetchData('bebe')}>bebe</NavLink>
         </li>
         <li>
-          <NavLink to="sasuke" onClick={() => fetchData('sasuke')}>Sasuke</NavLink>
+          <NavLink to="sdfsdf" onClick={() => fetchData('sdfsdf')}>sdfsdf</NavLink>
+        </li>
+        <li>
+          <NavLink to="neopets" onClick={() => fetchData('neopets')}>neopets</NavLink>
+        </li>
+        <li>
+          <NavLink to="elon" onClick={() => fetchData('elon')}>elon</NavLink>
+        </li>
+        <li>
+          <NavLink to="bratz" onClick={() => fetchData('bratz')}>bratz</NavLink>
+        </li>
+        <li>
+        <NavLink to="meme" onClick={() => fetchData('meme')}>meme</NavLink>
+        </li>
+        <li>
+        <NavLink to="millenium" onClick={() => fetchData('millenium')}>millenium</NavLink>
         </li>
         <Outlet />
       </ul>

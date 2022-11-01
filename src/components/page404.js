@@ -1,7 +1,7 @@
 const Error404 = () => (
     <div className="main-content not-found">
-      <i className="material-icons icn-error">error_outline</i>
-      <h2>Page Not Found</h2>
+      <h2>...:/</h2>
+      <p>sorry couldn't find your page, please try again</p>
     </div>
   );
 

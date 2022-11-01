@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import apiKey from "./config";
 import axios from "axios";
@@ -8,14 +8,12 @@ import axios from "axios";
 import Search from "./components/Search";
 import Nav from "./components/Nav";
 import PhotoContainer from "./components/PhotoContainer";
+import Error404 from "./components/page404";
 
 const App = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchData("shiba");
-  }, []);
 
   const fetchData = (inputWord) => {
     axios
@@ -35,6 +33,7 @@ const App = () => {
 
   return (
     <div className="container ">
+      <h1>search away <i>your</i> worries</h1>
       <Search fetchData={fetchData} setLoading={setLoading} />
       <Nav fetchData={fetchData}/>
       <Routes>
@@ -49,7 +48,7 @@ const App = () => {
           }
         />
         <Route
-          path="shiba"
+          path="lol"
           element={
             <PhotoContainer
               data={data}
@@ -59,7 +58,7 @@ const App = () => {
           }
         />
         <Route
-          path="anime"
+          path="bebe"
           element={
             <PhotoContainer
               data={data}
@@ -69,7 +68,57 @@ const App = () => {
           }
         />
         <Route
-          path="sasuke"
+          path="sdfsdf"
+          element={
+            <PhotoContainer
+              data={data}
+              loading={loading}
+              fetchData={fetchData}
+            />
+          }
+        />
+                <Route
+          path="neopets"
+          element={
+            <PhotoContainer
+              data={data}
+              loading={loading}
+              fetchData={fetchData}
+            />
+          }
+        />
+                <Route
+          path="elon"
+          element={
+            <PhotoContainer
+              data={data}
+              loading={loading}
+              fetchData={fetchData}
+            />
+          }
+        />
+                <Route
+          path="bratz"
+          element={
+            <PhotoContainer
+              data={data}
+              loading={loading}
+              fetchData={fetchData}
+            />
+          }
+        />
+                <Route
+          path="meme"
+          element={
+            <PhotoContainer
+              data={data}
+              loading={loading}
+              fetchData={fetchData}
+            />
+          }
+        />
+                        <Route
+          path="millenium"
           element={
             <PhotoContainer
               data={data}
@@ -88,6 +137,7 @@ const App = () => {
             />
           }
         />
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </div>
   );

@@ -24,7 +24,7 @@ const Search = ( {fetchData, setLoading} ) => {
         <input
           type="search"
           name="search"
-          placeholder="Search"
+          placeholder="search..."
           ref={input}
           onChange={handleLoading}
           required
