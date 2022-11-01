@@ -4,26 +4,28 @@ import Photo from "./Photo";
 import NotFound from "./NotFound";
 
 const PhotoContainer = ({ data, fetchData, loading }) => {
-  // variables
+  // declaring variables for fetching data
   const { input } = useParams();
   let location = useLocation();
   let path = location.pathname.slice(1);
   let photos;
 
-  // useEffect
   useEffect(() => {
     if (input) {
-      console.log("render");
       fetchData(input);
     } else if (path) {
-      console.log("render");
       fetchData(path);
     } else {
-      console.log("render");
+      /* defaults back to this if nothing is searched */
       fetchData("lol");
     }
   }, [path, input]);
 
+/* 
+Sending all props down to all 24 images iterating with map method to be displayed in their own Photo component
+OR 
+displays Not Found component if no images can be found 
+*/
   if (data.length > 0) {
     photos = data.map((photo) => {
       return <Photo url={photo.url_o} alt={photo.title} key={photo.id} />;

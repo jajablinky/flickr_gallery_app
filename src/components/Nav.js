@@ -4,6 +4,9 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const Nav = ( {fetchData} ) => {
   return (
+
+      /* All navlinks when clicked on fetches the relevant data */
+
     <nav className="main-nav">
       <ul>
         <li>
