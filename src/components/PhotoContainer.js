@@ -19,6 +19,7 @@ const PhotoContainer = ({ data, fetchData, loading }) => {
       /* defaults back to this if nothing is searched */
       fetchData("lol");
     }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [path, input]);
 
 /* 
@@ -28,7 +29,7 @@ displays Not Found component if no images can be found
 */
   if (data.length > 0) {
     photos = data.map((photo) => {
-      return <Photo url={photo.url_o} alt={photo.title} key={photo.id} />;
+      return <Photo url={photo.url_s} alt={photo.title} key={photo.id} />;
     });
   } else {
     photos = <NotFound />;

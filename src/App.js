@@ -11,14 +11,15 @@ import PhotoContainer from "./components/PhotoContainer";
 import Error404 from "./components/page404";
 
 const App = () => {
+/* State for api data collection from flickr and accounting for a loading state */
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
+/* Fetching Data function to be used in search fields and nav bar*/
   const fetchData = (inputWord) => {
     axios
       .get(
-        `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${inputWord}&per_page=24&extras=url_o&format=json&nojsoncallback=1`
+        `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${inputWord}&per_page=24&extras=url_s&format=json&nojsoncallback=1`
       )
       .then((res) => {
         setData(res.data.photos.photo);
@@ -34,8 +35,11 @@ const App = () => {
   return (
     <div className="container ">
       <h1>search away <i>your</i> worries</h1>
+      {/* Search and Nav components with props being sent unilaterally  */}
       <Search fetchData={fetchData} setLoading={setLoading} />
       <Nav fetchData={fetchData}/>
+
+      {/* Routes for default, Nav bar pathways, search pathway, and error */}
       <Routes>
         <Route
           path="/"
@@ -47,6 +51,7 @@ const App = () => {
             />
           }
         />
+      {/* Nav */}
         <Route
           path="lol"
           element={
@@ -127,6 +132,8 @@ const App = () => {
             />
           }
         />
+
+        {/* Search result path */}
         <Route
           path="/searchbar/:input"
           element={
@@ -137,7 +144,10 @@ const App = () => {
             />
           }
         />
+
+        {/* Page cannot be found error */}
         <Route path="*" element={<Error404 />} />
+
       </Routes>
     </div>
   );
